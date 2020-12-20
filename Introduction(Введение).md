@@ -3,7 +3,7 @@ Socket.IO - это библиотека, которая обеспечивает
 Это состоит из:
 * Node.js server: [Source](https://github.com/socketio/socket.io) | [API](https://socket.io/docs/v3/server-api/)
 * И клиентской библиотеки Javascript для браузера (которую также можно запускать из Node.js): [Source](https://github.com/socketio/socket.io-client) | [API](https://socket.io/docs/v3/client-api/)
-Format: ![Alt Text](https://socket.io/images/bidirectional-communication.png)
+![](https://socket.io/images/bidirectional-communication.png)
 
 ### Есть также несколько клиентских реализаций на других языках, которые поддерживаются сообществом:
 * Java: https://github.com/socketio/socket.io-client-java
@@ -160,6 +160,6 @@ httpServer.listen(3000, () => {
 node index.js
 ```
 И voilà(вуаля)!
-Format: ![Alt Text](https://socket.io/images/minimal-example-connect.gif)
+![](https://socket.io/images/minimal-example-connect.gif)
 
 ##### **Long Polling** - это технология, которая позволяет получать информацию о новых событиях с помощью «длинных запросов». Сервер получает запрос, но отправляет ответ на него не сразу, а лишь тогда, когда произойдет какое-либо событие (например, поступит новое входящее сообщение), либо истечет заданное время ожидания.
