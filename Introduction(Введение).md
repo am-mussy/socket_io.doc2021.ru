@@ -14,7 +14,7 @@ Format: ![Alt Text](https://socket.io/images/bidirectional-communication.png)
 * .Net: https://github.com/Quobject/SocketIoClientDotNet
 
 # Как это работает?
-Клиент попытается установить соединение [WebSocket](https://developer.mozilla.org/ru/docs/Web/API/WebSocket), если это возможно, и в противном случае вернется к длинному опросу HTTP.
+Клиент попытается установить соединение [WebSocket](https://developer.mozilla.org/ru/docs/Web/API/WebSocket), если это возможно, а в противном случае вернется к долгому опросу(long polling*) HTTP.
 WebSocket - это протокол связи, который обеспечивает полнодуплексный канал с малой задержкой между сервером и браузером. Более подробную информацию можно найти [здесь](https://ru.wikipedia.org/wiki/WebSocket).
 
 И так, при хорошем раскладке, если:
@@ -55,3 +55,11 @@ socket.on('greetings', (elem1, elem2, elem3) => {
   console.log(elem1, elem2, elem3);
 });
 ```
+
+
+
+
+
+
+
+##### Long Polling - это технология, которая позволяет получать информацию о новых событиях с помощью «длинных запросов». Сервер получает запрос, но отправляет ответ на него не сразу, а лишь тогда, когда произойдет какое-либо событие (например, поступит новое входящее сообщение), либо истечет заданное время ожидания.
