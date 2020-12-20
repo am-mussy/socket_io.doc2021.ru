@@ -162,4 +162,33 @@ node index.js
 И voilà(вуаля)!
 ![](https://socket.io/images/minimal-example-connect.gif)
 
+Объект сокета с обеих сторон расширяет класс EventEmitter, поэтому: 
+* отправка события выполняется с помощью: socket.emit () 
+* получение события осуществляется путем регистрации слушателя: socket.on (<имя события>, <слушатель>)
+
+## Чтобы отправить событие с сервера клиенту
+Давайте обновим файл index.js (на стороне сервера):
+```javascript
+io.on('connection', socket => {
+  let counter = 0;
+  setInterval(() => {
+    socket.emit('hello', ++counter);
+  }, 1000);
+});
+```
+И файл index.html (на стороне клиента):
+```javascript
+const socket = io();
+
+socket.on('connect', () => {
+  $events.appendChild(newItem('connect'));
+});
+
+socket.on('hello', (counter) => {
+  $events.appendChild(newItem(`hello - ${counter}`));
+});
+```
+Вот что получилось:
+![](https://socket.io/images/minimal-example-server-to-client.gif)
+
 ##### **Long Polling** - это технология, которая позволяет получать информацию о новых событиях с помощью «длинных запросов». Сервер получает запрос, но отправляет ответ на него не сразу, а лишь тогда, когда произойдет какое-либо событие (например, поступит новое входящее сообщение), либо истечет заданное время ожидания.
